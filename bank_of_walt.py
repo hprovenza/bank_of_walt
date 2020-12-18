@@ -1,12 +1,9 @@
-# This example requires the 'members' privileged intents
 from config import bot_token
 import discord
 from discord.ext import commands
 import json
 
-description = '''An example bot to showcase the discord.ext.commands extension
-module.
-There are a number of utility commands being showcased here.'''
+description = '''A discord bot to keep track of fake internet points.'''
 
 intents = discord.Intents.default()
 intents.members = True
@@ -76,6 +73,9 @@ async def give(ctx, member: discord.Member, n: int):
 
 @bot.command()
 async def bet(ctx, arbiter: discord.Member, n: int, *condition: str):
+    """Make bets to win more waltbux.
+    Usage:  $bet [arbiter] [amount] [win condition]
+    Arbiter should react with ✅ to affirm a win and ❌ to report a loss."""
     with open('users.json', 'r') as f:
         users = json.load(f)
 
