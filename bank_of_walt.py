@@ -1,5 +1,5 @@
 # This example requires the 'members' privileged intents
-
+from config import bot_token
 import discord
 from discord.ext import commands
 import json
