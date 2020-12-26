@@ -1,7 +1,9 @@
-from config import bot_token
-import discord
-from discord.ext import commands
 import json
+import os
+
+import discord
+from boto.s3.connection import S3Connection
+from discord.ext import commands
 
 description = '''A discord bot to keep track of fake internet points.'''
 
@@ -81,6 +83,7 @@ async def bet(ctx, arbiter: discord.Member, n: int, *condition: str):
 
     if ctx.author.id != arbiter.id:
         if users[f"{ctx.author.id}"]['bux'] >= n:
+            # await ctx.
             await ctx.send(f"BET: {ctx.author} {n} {' '.join(condition)} awaiting judgement from {arbiter}")
         else: await ctx.send("You don't have enough waltbux to make that bet!")
     else: await ctx.send("You can't resolve your own bet!")
@@ -111,5 +114,5 @@ async def on_reaction_add(reaction, user):
                 with open('users.json', 'w') as f:
                     json.dump(users, f)
 
-
+bot_token = S3Connection(os.environ['PRIVATE_TOKEN'])
 bot.run(bot_token)
