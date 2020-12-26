@@ -2,7 +2,6 @@ import json
 import os
 
 import discord
-from boto.s3.connection import S3Connection
 from discord.ext import commands
 
 description = '''A discord bot to keep track of fake internet points.'''
@@ -114,5 +113,5 @@ async def on_reaction_add(reaction, user):
                 with open('users.json', 'w') as f:
                     json.dump(users, f)
 
-bot_token = S3Connection(os.environ['PRIVATE_TOKEN'])
+bot_token = os.environ.get('PRIVATE_TOKEN')
 bot.run(bot_token)
