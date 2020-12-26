@@ -1,8 +1,8 @@
 import json
-import os
 
 import discord
 from discord.ext import commands
+from settings import bot_token
 
 description = '''A discord bot to keep track of fake internet points.'''
 
@@ -113,5 +113,4 @@ async def on_reaction_add(reaction, user):
                 with open('users.json', 'w') as f:
                     json.dump(users, f)
 
-bot_token = os.environ.get('PRIVATE_TOKEN')
 bot.run(bot_token)
