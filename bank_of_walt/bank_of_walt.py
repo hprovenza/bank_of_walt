@@ -11,7 +11,7 @@ intents.members = True
 intents.reactions = True
 
 bot = commands.Bot(command_prefix='?', description=description, intents=intents)
-database_file = 'users.json'
+database_file = 'resources/users.json'
 
 @bot.event
 async def on_ready():

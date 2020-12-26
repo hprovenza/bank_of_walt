@@ -1,6 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 
 .idea/
-users.json
-.env
+bank_of_walt/resources/users.json
+bank_of_walt/.env
 __pycache__/
